@@ -1,0 +1,16 @@
+{
+  "name": "UberClone",
+  "version": "1.0.0",
+  "description": "Uber Clone Coding Tutorial",
+  "main": "index.js",
+  "repository": "https://github.com/jinwoongBang/uber-clone.git",
+  "author": "Jinwoong-Bang",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.0.13",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.5"
+  }
+}

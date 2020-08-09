@@ -7,12 +7,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-  ManyToOne,
 } from 'typeorm';
 import Chat from './Chat';
 import Message from './Message';
+import Ride from './Ride';
+import Verification from './Verification';
 
 const BCRYPT_ROUNDS = 10;
 @Entity()
@@ -81,6 +84,15 @@ class User extends BaseEntity {
 
   @ManyToOne(type => Message, message => message.user)
   messages: Message[];
+
+  @OneToMany(type => Verification, verification => verification.user)
+  verifications: Verification[];
+
+  @OneToMany(type => Ride, ride => ride.passenger)
+  ridesAsPassenger: Ride[];
+
+  @OneToMany(type => Ride, ride => ride.driver)
+  ridesAsDriver: Ride[];
 
   public comparePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);

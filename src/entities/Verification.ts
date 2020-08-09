@@ -6,14 +6,15 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { verificationTarget } from '../types/types';
 
 @Entity()
 class Verification extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'text' })
-  traget: string;
+  @Column({ type: 'text', enum: ['PHONE', 'EMAIL'] })
+  traget: verificationTarget;
 
   @Column({ type: 'text' })
   payload: string;

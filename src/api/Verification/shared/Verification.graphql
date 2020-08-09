@@ -1,0 +1,9 @@
+type Verification {
+    id: Int!
+    method: String!
+    payload: String!
+    key: String!
+    used: Boolean!
+    createdAt: String!
+    updatedAt: String!
+}

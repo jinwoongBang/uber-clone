@@ -9,7 +9,10 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm';
+import Chat from './Chat';
+import Message from './Message';
 
 const BCRYPT_ROUNDS = 10;
 @Entity()
@@ -72,6 +75,12 @@ class User extends BaseEntity {
 
   @Column({ type: 'double precision', default: 0 })
   lastOrientation: number;
+
+  @ManyToOne(type => Chat, chat => chat.participants)
+  chat: Chat;
+
+  @ManyToOne(type => Message, message => message.user)
+  messages: Message[];
 
   public comparePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);

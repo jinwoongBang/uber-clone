@@ -47,21 +47,27 @@ class User extends BaseEntity {
   @UpdateDateColumn()
   updateAt: string;
 
-  //   facebookID: String;
-  //   age: Int;
-  //   password: String;
-  //   phoneNumber: String;
-  //   verifiedPhoneNumber: !Boolean;
-  //   profilePhoto: String;
-  //   createdAt: !String;
-  //   updatedAt: !String;
-  //   fullName: String;
-  //   isDriving: !Boolean;
-  //   isRiding: !Boolean;
-  //   isTaken: !Boolean;
-  //   lastLog: Float;
-  //   lastLat: Float;
-  //   lastOrientation: Float;
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  @Column({ type: 'boolean', default: false })
+  isDriving: boolean;
+
+  @Column({ type: 'boolean', default: false })
+  isRiding: boolean;
+
+  @Column({ type: 'boolean', default: false })
+  isTaken: boolean;
+
+  @Column({ type: 'double precision', default: 0 })
+  lastLog: number;
+
+  @Column({ type: 'double precision', default: 0 })
+  lastLat: number;
+  
+  @Column({ type: 'double precision', default: 0 })
+  lastOrientation: number;
 }
 
 export default User;

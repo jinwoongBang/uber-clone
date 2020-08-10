@@ -6,7 +6,7 @@ uber clone coding
 
 ### Public Resolvers:
 
-- [ ] Sign In / Sign Up with Facebook
+- [x] Sign In / Sign Up with Facebook
 - [ ] Sign In with Email
 - [ ] Start Phone Number Verification
 - [ ] Complete Phone Number Verification
@@ -16,6 +16,8 @@ uber clone coding
 
 ### Private Resolvers:
 
+- [ ] Generate KJWT
+- [ ] Verify JWT
 - [ ] Verify Email
 - [ ] Get My Profile
 - [ ] Update my Profile

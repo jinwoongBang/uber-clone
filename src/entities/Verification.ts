@@ -4,7 +4,6 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -35,7 +34,7 @@ class Verification extends BaseEntity {
 
   @BeforeInsert()
   createKey(): void {
-    if (this.traget === PHONE) {
+    if (this.target === PHONE) {
       this.key = Math.floor(Math.random() * 100000).toString();
     } else {
       this.key = Math.random().toString(36).substr(2);
